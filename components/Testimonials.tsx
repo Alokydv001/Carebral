@@ -16,7 +16,7 @@ const testimonials = [
   {
     name: "Michael Davis",
     role: "Patient",
-    image: "/images 1.jpg",
+    image: "/images1.jpg",
     quote:
       "Finding a psychiatrist who truly listens and understands me has been a game-changer. I highly recommend Talkiatry!",
   },
@@ -30,7 +30,7 @@ const testimonials = [
   {
     name: "James Carter",
     role: "Patient",
-    image: "/images3.jpg", // ✅ Ensure correct image file path
+    image: "/images3.jpg",
     quote:
       "Cerebral helped me through one of the toughest times in my life. The doctors here truly care about their patients.",
   },
@@ -63,19 +63,24 @@ const Testimonials = () => {
               <SwiperSlide key={index}>
                 <div className="relative w-full h-[320px] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105">
                   {/* Background Image */}
-                  <Image
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    fill
-                    className="object-cover"
-                  />
+                  <div className="relative w-full h-full">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-xl"
+                    />
+                  </div>
 
                   {/* Dark Overlay for Readability */}
                   <div className="absolute inset-0 bg-black/50 backdrop-blur-sm rounded-xl"></div>
 
                   {/* Text Content on Image */}
                   <div className="absolute inset-0 flex flex-col justify-center items-center text-center p-4">
-                    <p className="text-white italic text-sm font-medium leading-snug">"{testimonial.quote}"</p>
+                    <p className="text-white italic text-sm font-medium leading-snug">
+                      &quot;{testimonial.quote}&quot;
+                    </p>
                     <h3 className="mt-3 text-lg font-semibold text-white">{testimonial.name}</h3>
                     <p className="text-blue-300 text-xs">{testimonial.role}</p>
                   </div>
